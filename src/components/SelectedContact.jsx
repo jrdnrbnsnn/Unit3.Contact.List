@@ -19,7 +19,7 @@ export default function SelectedContact({
       }
     }
     fetchContact(selectedContactId);
-  }, [selectedContactId]);
+  }, []);
 
   if (!contact) {
     return <div>Loading...</div>;
@@ -35,7 +35,12 @@ export default function SelectedContact({
       <p>Address: {contact.address.street}</p>
       <p>Phone: {contact.phone}</p>
       <p>Website: {contact.website}</p>
-      <button type="button" onClick={(setSelectedContactId = null)}>
+      <button
+        type="button"
+        onClick={() => {
+          setSelectedContactId(null);
+        }}
+      >
         Go back
       </button>
     </div>
